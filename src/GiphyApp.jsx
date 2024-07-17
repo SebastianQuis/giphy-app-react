@@ -8,14 +8,17 @@ export const GiphyApp = () => {
     // const [categories, setCategories] = useState(['Ratatouine', 'Batman'])
 
     const onAddCategory = ( value ) => {
-        if (categories.includes( value )) return;
+        if (categories.includes( value )) {
+            alert('Categoría ya creada.');
+            return;
+        };
         setCategories( [value, ...categories] );
     }
 
 
     return (
         <>
-            <h1>Giphy app</h1>    
+            <h1>Giphy app</h1>
 
             <AddCategory 
                 onNewCategory = { (value) => onAddCategory(value) } 
@@ -24,16 +27,14 @@ export const GiphyApp = () => {
             {
                 categories.length > 0
                     ? categories.map( category => 
-                        <GifGrid 
-                            key={category} 
+                        <GifGrid
+                            key={category}
                             category={category}
                         />)
-                    : <span>Empieza agregando una categoría..</span>
+                    : <p>Empieza agregando una categoría..</p>
             }
         </>
     )
 }
 
 
-// const api_key = 'drMsi6w7DcbBdMhn1URZPZXZy9m2aAQb';
-// const peticion = fetch(`https://api.giphy.com/v1/gifs/random?api_key=${api_key}`);

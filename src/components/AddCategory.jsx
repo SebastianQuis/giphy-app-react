@@ -10,13 +10,13 @@ export const AddCategory = ( { onNewCategory } ) => {
     }
 
     const onSubmitGphy = ( event ) => {
-        event.preventDefault();
+        event.preventDefault(); // FUNCIONAMIENTO BÁSICO
         if (inputValue.trim().length < 2) {
             alert('Tiene que ingresar más de 1 caracter');
             return;
         };
-        onNewCategory( inputValue.trim() )
-        setInputValue(''); 
+        onNewCategory( inputValue.trim() ) 
+        setInputValue(''); // LIMPIANDO VALOR DE INPUT
     }
 
     return (
