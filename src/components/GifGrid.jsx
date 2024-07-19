@@ -1,32 +1,35 @@
 
-import React, { useEffect, useState } from 'react'
-import { getGifs } from '../helpers/getGifs';
+import { GifItem } from './GifItem';
+import { UseFetchGifs } from '../hooks/UseFetchGifs';
 
 
 export const GifGrid = ( {category} ) => {
-  
-  const [gifs, setGifs] = useState([]);
 
-  const getImages = async() => {
-    const allGifs = await getGifs( category );
-    setGifs(allGifs);
-  }
+  const { data, isLoading } = UseFetchGifs(category);
+  console.log(isLoading);
 
-  useEffect( () => {
-    getImages();
-  }, []) // arreglo de dependencias.
+  // TODO - AGREGAR BOTON PARA LIMPIAR EL ARREGLO
   
 
   return (
-    <> 
-      <ol>
-        {
-          gifs.map( gif => {
-            <li key={gif.id}>{gif.title}</li>
-          })
-        }
-      </ol>
+    <>
+      <h3>{category}</h3>
+      
+      {/* // TODO - 1RA MANERA */}
+      {
+        isLoading && (<p>Cargando...</p>)
+      }
+      <GifItem gifs={ data }></GifItem>
+
+      
+      {/* // TODO - 2DA MANERA */}
+      {/* {
+        ( isLoading ) 
+          ? <p>Cargando...</p> 
+          : <GifItem gifs={ data }></GifItem>
+      } */}
     </>
   )
 
 }
+
