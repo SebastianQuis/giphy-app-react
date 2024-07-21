@@ -6,7 +6,7 @@ import { UseFetchGifs } from '../hooks/UseFetchGifs';
 export const GifGrid = ( {category} ) => {
 
   const { data, isLoading } = UseFetchGifs(category);
-  console.log(isLoading);
+  // console.log(isLoading);
 
   // TODO - AGREGAR BOTON PARA LIMPIAR EL ARREGLO
   
