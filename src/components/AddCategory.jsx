@@ -6,7 +6,7 @@ export const AddCategory = ( { onNewCategory } ) => {
 
     const onGiphyChanged = ( event ) => {
         // console.log( `ONCHANGED: ${event.target.value}` );
-        setInputValue( event.target.value );
+        setInputValue( event.target.value ); // el valor ingresado en el input
     }
 
     const onSubmitGphy = ( event ) => {

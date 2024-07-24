@@ -5,29 +5,23 @@ import { UseFetchGifs } from '../hooks/UseFetchGifs';
 
 export const GifGrid = ( {category} ) => {
 
-  const { data, isLoading } = UseFetchGifs(category);
-  // console.log(isLoading);
+  const { images, isLoading } = UseFetchGifs(category);
 
   // TODO - AGREGAR BOTON PARA LIMPIAR EL ARREGLO
   
 
   return (
     <>
-      <h3>{category}</h3>
+      { isLoading && ( <h2>Cargando...</h2> ) }
       
-      {/* // TODO - 1RA MANERA */}
-      {
-        isLoading && (<p>Cargando...</p>)
-      }
-      <GifItem gifs={ data }></GifItem>
-
-      
-      {/* // TODO - 2DA MANERA */}
-      {/* {
-        ( isLoading ) 
-          ? <p>Cargando...</p> 
-          : <GifItem gifs={ data }></GifItem>
-      } */}
+      <div className="card-grid">
+        { images.map( ( image ) => (
+          <GifItem 
+            key={ image.id } 
+            { ...image }
+          />
+        ))}
+      </div>
     </>
   )
 

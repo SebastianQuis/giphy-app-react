@@ -1,17 +1,29 @@
 
 import React from 'react'
 
-export const GifItem = ( {gifs = []} ) => {
-  
+import PropTypes from 'prop-types';
+
+
+
+export const GifItem = ( { title, imgUrl } ) => {
+    
     return (
-        <div className='card-grid'>
-            {
-                gifs.map( ( {id, title, imgUrl} ) => (
-                    // <p key={id}> {title} </p>
-                    <img src={imgUrl} key={id} alt='title'/>
-                ))
-            }
-        </div>    
+        <div className="card" role='dialog'>
+            <img src={ imgUrl } alt={ title } />
+            <p>{ title }</p>
+        </div>
     )
+
 }
+
+
+GifItem.propTypes = {
+    title: PropTypes.string.isRequired,
+    imgUrl: PropTypes.string.isRequired
+}
+
+// GifItem.defaultProps = {
+//     title: '',
+//     imgUrl: '',
+// }
 

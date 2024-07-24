@@ -18,7 +18,7 @@ export const GiphyApp = () => {
 
     return (
         <>
-            <h1>Giphy app</h1>
+            <h2>GIPHY</h2>
 
             <AddCategory 
                 onNewCategory = { (value) => onAddCategory(value) } 
