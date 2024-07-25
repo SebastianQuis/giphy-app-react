@@ -21,7 +21,7 @@ export const AddCategory = ( { onNewCategory } ) => {
 
     return (
         <form onSubmit={ onSubmitGphy }>
-            <input 
+            <input  // 'textbox'
                 type="text" 
                 placeholder='Buscar gif'
                 value={ inputValue } 
@@ -30,7 +30,3 @@ export const AddCategory = ( { onNewCategory } ) => {
         </form>
     )
 }
-
-
-
-
