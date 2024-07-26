@@ -1,7 +1,9 @@
+
+import PropTypes from 'prop-types';
+
 import React, { useState } from 'react'
 
 export const AddCategory = ( { onNewCategory } ) => {
-
     const [inputValue, setInputValue] = useState('');
 
     const onGiphyChanged = ( event ) => {
@@ -15,12 +17,12 @@ export const AddCategory = ( { onNewCategory } ) => {
             alert('Tiene que ingresar más de 1 caracter');
             return;
         };
-        onNewCategory( inputValue.trim() ) 
         setInputValue(''); // LIMPIANDO VALOR DE INPUT
+        onNewCategory( inputValue.trim() ) 
     }
 
     return (
-        <form onSubmit={ onSubmitGphy }>
+        <form role='form' onSubmit={ onSubmitGphy  }>
             <input  // 'textbox'
                 type="text" 
                 placeholder='Buscar gif'
@@ -29,4 +31,10 @@ export const AddCategory = ( { onNewCategory } ) => {
             />
         </form>
     )
+}
+
+
+
+AddCategory.propTypes = {
+    onNewCategory: PropTypes.func.isRequired
 }

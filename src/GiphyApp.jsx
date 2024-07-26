@@ -7,6 +7,9 @@ export const GiphyApp = () => {
     const [categories, setCategories] = useState([])
     // const [categories, setCategories] = useState(['Ratatouine', 'Batman'])
 
+
+    // TODO - HACER PRUEBA DE ONADDCATEGORY
+    // TODO - SI ES LA MISMA CATEGORIA CREADA
     const onAddCategory = ( value ) => {
         if (categories.includes( value )) {
             alert('Categoría ya creada.');
